@@ -1,6 +1,7 @@
 import 'package:utm_clime/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:utm_clime/landingpage.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
@@ -22,8 +23,9 @@ class Home extends StatelessWidget {
 
   Widget _signOutButton() {
     return ElevatedButton(
-      onPressed: signOut,
+      onPressed: signOut ,
       child: const Text('Sign Out'),
+      
     );
   }
 
@@ -45,10 +47,7 @@ class Home extends StatelessWidget {
             _signOutButton(),
           ],
         ),
-         /* child: const Center(
-            child: Text("Under construction...  :( ",
-                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30)),
-          ),*/
+        
         ),
         
         );
