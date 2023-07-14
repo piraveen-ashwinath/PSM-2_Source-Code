@@ -4,14 +4,14 @@ import '../auth.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:utm_clime/fingerprint.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class LandingPage extends StatefulWidget {
+  const LandingPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LandingPage> createState() => LandingPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class LandingPageState extends State<LandingPage> {
   String? errorMessage = '';
   bool login = true;
 

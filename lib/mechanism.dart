@@ -4,14 +4,14 @@ import 'package:utm_clime/landingpage.dart';
 import 'package:flutter/material.dart';
 import 'package:utm_clime/fingerprint.dart';
 
-class WidgetTree extends StatefulWidget {
-  const WidgetTree({Key? key}) : super(key: key);
+class Mechanism extends StatefulWidget {
+  const Mechanism({Key? key}) : super(key: key);
 
   @override
-  State<WidgetTree> createState() => _WidgetTreeState();
+  State<Mechanism> createState() => _MechanismState();
 }
 
-class _WidgetTreeState extends State<WidgetTree> {
+class _MechanismState extends State<Mechanism> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -20,7 +20,7 @@ class _WidgetTreeState extends State<WidgetTree> {
         if (snapshot.hasData) {
           return const FingerprintPage();
         } else {
-          return const LoginPage();
+          return const LandingPage();
         }
       },
       

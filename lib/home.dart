@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:utm_clime/landingpage.dart';
 import 'package:firebase_database/firebase_database.dart';
 
-
+DatabaseReference database = FirebaseDatabase.instance.ref('Readings');
+//Realtime? realtime;
 
 
 class Home extends StatelessWidget {
@@ -16,33 +17,44 @@ class Home extends StatelessWidget {
     await Auth().signOut();
   }
 
-  Widget _userId() {
+  Widget userId() {
     return Text(user?.email ?? 'User email');
   }
 
-  void fetchData(){
-    FirebaseDatabase database = FirebaseDatabase.instance;
-    DatabaseReference ref = FirebaseDatabase.instance.ref("Readings");
-    Stream<DatabaseEvent> stream = ref.onValue;
-    stream.listen((DatabaseEvent event) {
-    print('Event Type: ${event.type}');
-    print('Snapshot: ${event.snapshot}');
-    });
-  }
 
-  Widget _tempMessage(){
-    fetchData;
+/*
+  Widget _TemperatureMessage(){
+    //fetchData;
     return const Text('Under construction...  :( ',
     style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30));
-  }
+  }*/
 
-  Widget _signOutButton() {
+  Widget signOutButton() {
     return ElevatedButton(
       onPressed: signOut ,
       child: const Text('Sign Out'),
       
     );
   }
+
+  Widget fetchData(){
+    return StreamBuilder(
+        stream: database.onValue,
+        builder: (context, AsyncSnapshot<DatabaseEvent> snapshot){ 
+          if (!snapshot.hasData) {
+           return const Center();
+          }
+          return Text(snapshot.data!.snapshot.child('Readings').value.toString(),
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              );
+
+  }
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,15 +72,61 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,   
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _tempMessage(),
-            _userId(),
-            _signOutButton(),
+            fetchData(),
+            userId(),
+            signOutButton(),
           ],
         ),
         
         ),
         
         );
+  
+  
   }
   
 }
+/*
+class Realtime {
+  String Temperature;
+  String Humidity;
+  String CarbonMonoxideLevels;
+  String DustSmall;
+  String DustBig;
+  String Rain;
+  String Pressure;
+
+  Realtime({
+    required this.Temperature,
+    required this.Humidity,
+    required this.CarbonMonoxideLevels,
+    required this.DustSmall,
+    required this.DustBig,
+    required this.Rain,
+    required this.Pressure,
+  });
+
+  factory Realtime.fromMap(Map<dynamic, dynamic> map) {
+    return Realtime(
+      Temperature: map['Temperature'] as String,
+      Humidity: map['Humidity'] as String,
+      CarbonMonoxideLevels: map['CarbonMonoxideLevels'] as String,
+      DustSmall: map['DustSmall'] as String,
+      DustBig: map['DustBig'] as String,
+      Rain: map['Rain'] as String,
+      Pressure: map['Pressure'] as String,
+    );
+  }
+
+  Map<dynamic, dynamic> toSetMap() {
+    return {
+      'Temperature': Temperature,
+      'Humidity': Humidity,
+      'CarbonMonoxideLevels': CarbonMonoxideLevels,
+      'DustSmall': DustSmall,
+      'DustBig': DustBig,
+      'Rain': Rain,
+      'Pressure': Pressure,
+    };
+  }
+}*/
