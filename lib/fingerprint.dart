@@ -10,7 +10,9 @@ class FingerprintPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text("UTM Clime"),
+          title: const Text("Air Pollution & Weather Monitor",
+          style: TextStyle(color: Colors.black),
+          ),
           centerTitle: true,
         ),
         body: Padding(
@@ -19,7 +21,7 @@ class FingerprintPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                buildAvailability(context),
+                //buildAvailability(context),
                 const SizedBox(height: 24),
                 buildAuthenticate(context),
               ],

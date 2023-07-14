@@ -47,7 +47,9 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _title() {
-    return const Text('UTM Clime');
+    return const Text('Air Pollution & Weather Monitor', 
+    style: TextStyle(color: Colors.black),
+    );
   }
 
   Widget _entryFieldemail(
@@ -103,6 +105,7 @@ Widget _entryFieldpassword(
     return Scaffold(
       appBar: AppBar(
         title: _title(),
+        centerTitle: true,
       ),
       body: Container(
         height: double.infinity,
