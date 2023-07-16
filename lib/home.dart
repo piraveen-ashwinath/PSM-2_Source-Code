@@ -1,10 +1,10 @@
 import 'package:utm_clime/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:utm_clime/landingpage.dart';
+import 'package:utm_clime/fetch.dart';
 import 'package:firebase_database/firebase_database.dart';
 
-DatabaseReference database = FirebaseDatabase.instance.ref('Readings');
+//DatabaseReference database = FirebaseDatabase.instance.ref();
 //Realtime? realtime;
 
 
@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
       
     );
   }
-
+/*
   Widget fetchData(){
     return StreamBuilder(
         stream: database.onValue,
@@ -53,7 +53,8 @@ class Home extends StatelessWidget {
 
   }
     );
-  }
+  }*/
+
 
 
   @override
@@ -72,7 +73,8 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,   
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            fetchData(),
+            //fetchData(),
+            Fetch(),
             userId(),
             signOutButton(),
           ],
@@ -86,6 +88,8 @@ class Home extends StatelessWidget {
   }
   
 }
+
+
 /*
 class Realtime {
   String Temperature;

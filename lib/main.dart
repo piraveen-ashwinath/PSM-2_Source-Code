@@ -1,8 +1,9 @@
+import 'package:utm_clime/landingpage.dart';
 import 'package:utm_clime/mechanism.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:utm_clime/home.dart';
+import 'package:utm_clime/fetch.dart';
 //import 'package:flutter_firebase_series/screens/fetch.dart';
 
 //DatabaseReference database = FirebaseDatabase.instance.ref();
