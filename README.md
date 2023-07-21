@@ -1,16 +1,24 @@
-# utm_clime
+# PSM-2_Source-Code
+This repository contains all of the files and code used and created during the development of the IoT-Based Air Pollution & Weather Monitoring System.
 
-A new Flutter project.
 
 ## Getting Started
+This project consists of an Arduino Sketch file, two Python scripts and Dart code files used during the system development process. The Arduino Sketch file is stored within a folder named as 'Arduino Sketch File'. The two Python scripts are located within a folder name 'Python Scripts'. The rest of the repository contains Dart code files used for the development of a Flutter-based Android application.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+### 'Python Scripts' Folder
+Consists of two Python scripts:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+#### Reader.py
+Used to obtain sensor readings from the Arduino Uno microcontroller via USB serial connection. The said reading are then uploaded to Firebase Realtime Databse as well as stored in a CSV file.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Weatherprediction.py
+Used to predict the weather through the use of a linear regression algorithm which is then uploaded to Firebase Realtime Database.
+
+
+### 'Adruino Sketch File' folder
+Contains the Arduino Sketch File used to program the Arduino Uno microcontroller.
+
+
+### The Rest of The Repository
+Contains the packages and Dart codes required for the development of the Flutter-based Android application.
