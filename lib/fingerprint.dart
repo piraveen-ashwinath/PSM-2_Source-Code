@@ -1,4 +1,4 @@
-import 'package:utm_clime/fetch.dart';
+import 'package:utm_clime/home.dart';
 import 'package:utm_clime/homescreen.dart';
 import 'package:utm_clime/localauth.dart';
 import 'package:utm_clime/main.dart';
@@ -79,7 +79,7 @@ class FingerprintPage extends StatelessWidget {
 
           if (isAuthenticated) {
             Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => Fetch()),
+              MaterialPageRoute(builder: (context) => Home()),
             );
           }
         },
