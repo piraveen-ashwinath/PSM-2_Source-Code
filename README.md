@@ -10,7 +10,7 @@ This project consists of an Arduino Sketch file, two Python scripts and Dart cod
 Consists of two Python scripts:
 
 #### Reader.py
-Used to obtain sensor readings from the Arduino Uno microcontroller via USB serial connection. The said reading are then uploaded to Firebase Realtime Databse as well as stored in a CSV file.
+Used to obtain sensor readings from the Arduino Uno microcontroller via USB serial connection. The said readings are then uploaded to Firebase Realtime Databse as well as stored in a CSV file.
 
 #### Weatherprediction.py
 Used to predict the weather through the use of a linear regression algorithm which is then uploaded to Firebase Realtime Database.
